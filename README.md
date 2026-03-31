@@ -113,19 +113,18 @@ Code
 Floor (Colored)         
 
 
-┌─────────────────────────────┐
-│       Mini Map 
-│
-│    ░░░░░░░░░░░░░░░ 
-│
-│    ░░░░░░░░░░░░░░░   
-│
-│    ░░ @ ░░░░░░░░░   
-│
-│    ░░░░░░░░░░░░░░░   
-│
-│    ░░░░░░░░░░░░░░░         │
-└─────────────────────────────┘
+   Mini Map 
+   
+░░░░░░░░░░░░░░░
+
+░░░░░░░░░░░░░░░   
+
+░░ @ ░░░░░░░░░   
+
+░░░░░░░░░░░░░░░  
+
+░░░░░░░░░░░░░░░      
+
 📚 Learning Resources
 Raycasting Tutorial: Permadi's Raycasting Tutorial
 Computer Graphics: Understanding 3D projections and perspective rendering
