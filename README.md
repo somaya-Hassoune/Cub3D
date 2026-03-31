@@ -97,14 +97,21 @@ key_controll()	Handle real-time input
 the_3d_projection()	Project 3D walls to 2D screen
 🖼️ Sample Output
 Code
+
 ┌──────────────────────��──────┐
-│  3D View (Textured Walls)   │
+│  3D View (Textured Walls)  
+│
 │                             │
-│    ███████████████████      │
-│    ███████████████████      │
-│    ███  Wall Texture  ███    │
-│    ███████████████████      │
-│    ███████████████████      │
+│    ███████████████████  
+│
+│    ███████████████████  
+│
+│    ███  Wall Texture  ███ 
+│
+│    ███████████████████  
+│
+│    ███████████████████  
+│
 │                             │
 │    Floor (Colored)          │
 └─────────────────────────────┘
