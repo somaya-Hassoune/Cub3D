@@ -1,1 +1,155 @@
-# Cub3D
+
+Build the Project
+bash
+make
+This will compile all source files and generate the cub3d executable.
+
+Clean Up
+bash
+make clean      # Remove object files
+make fclean     # Remove all compiled files
+make re         # Rebuild from scratch
+🚀 Usage
+Run the game with a valid .cub map file:
+
+bash
+./cub3d maps/your_map.cub
+Map File Format
+The .cub file format specifies the game configuration:
+
+Code
+NO path_to_north_wall_texture
+SO path_to_south_wall_texture
+WE path_to_west_wall_texture
+EA path_to_east_wall_texture
+
+F 220,100,0      # Floor color (R,G,B)
+C 225,30,0       # Ceiling color (R,G,B)
+
+        1111111111111111111111111
+        1000000000110000000000001
+        1011000001110000000000001
+        1001000000000000000000001
+111111111011000001110000000000001
+100000000011000001110111111111111
+10110000011100000111011N1111111111
+1011000001110101010001011111111111
+1001000000000000000000001111111111
+111101111011111011111011111111111
+11000000110101011010001
+11110111 1110101101111011
+11111111 1111111111111111
+Key Points:
+
+NO, SO, WE, EA: Texture file paths for each wall direction
+F: Floor RGB color (0-255 for each component)
+C: Ceiling RGB color
+Map grid: 1 = wall, 0 = walkable space, N/S/E/W = player start position + direction
+📁 Project Structure
+Code
+Cub3D/
+├── main.c                 # Main entry point & initialization
+├── cub.h                  # Header file with structs & function declarations
+├── parsing/               # Map & configuration file parsing
+├── raycasting/            # Core raycasting algorithm
+├── key_controll/          # Input handling & movement logic
+├── cub_utils/             # Utility functions
+├── manage_textures/       # Texture loading & management
+├── mini_map/              # Minimap rendering
+├── maps/                  # Sample map files
+├── textures/              # Texture assets
+├── Makefile               # Build configuration
+└── libmlx.a               # MLX42 graphics library (precompiled)
+🎨 Technical Implementation
+Raycasting Algorithm
+The engine uses DDA (Digital Differential Analyzer) raycasting:
+
+Ray Casting: For each vertical screen column, cast a ray from the player's position
+Intersection Detection: Calculate intersections with map walls (both horizontal & vertical)
+Distance Calculation: Determine the nearest wall intersection
+Height Projection: Map distance to wall height for 3D effect
+Texture Mapping: Apply wall textures based on hit position
+Data Structures
+Player (t_player)
+
+Position: (x, y) coordinates
+Rotation: dir_angle (direction facing)
+Movement: walk_speed and rotation_angle (sensitivity)
+Field of View: 60 degrees (π/3 radians)
+Raycasting (t_raycasting)
+
+Array of up to 1920 rays (one per screen pixel)
+Stores distance, hit coordinates, and intersection type for each ray
+Map (t_map)
+
+2D grid layout (walls and walkable areas)
+Texture file paths for 4 directions
+Floor/Ceiling colors
+Player starting position and direction
+🔧 Core Functions
+Function	Purpose
+parsing()	Load and parse .cub map files
+mlx_set_up()	Initialize graphics window & image buffer
+draw_map()	Main rendering loop
+reflect_ray()	Core raycasting algorithm
+load_textures()	Load and prepare wall textures
+key_controll()	Handle real-time input
+the_3d_projection()	Project 3D walls to 2D screen
+🖼️ Sample Output
+Code
+┌──────────────────────��──────┐
+│  3D View (Textured Walls)   │
+│                             │
+│    ███████████████████      │
+│    ███████████████████      │
+│    ███  Wall Texture  ███    │
+│    ███████████████████      │
+│    ███████████████████      │
+│                             │
+│    Floor (Colored)          │
+└─────────────────────────────┘
+
+┌─────────────────────────────┐
+│       Mini Map              │
+│    ░░░░░░░░░░░░░░░         │
+│    ░░░░░░░░░░░░░░░         │
+│    ░░ @ ░░░░░░░░░         │
+│    ░░░░░░░░░░░░░░░         │
+│    ░░░░░░░░░░░░░░░         │
+└─────────────────────────────┘
+📚 Learning Resources
+Raycasting Tutorial: Permadi's Raycasting Tutorial
+Computer Graphics: Understanding 3D projections and perspective rendering
+Game Dev: Event-driven architecture and real-time rendering loops
+🐛 Known Limitations
+Orthogonal walls only (no diagonal surfaces)
+Flat terrain (no elevation changes)
+Fixed resolution based on screen size
+Performance may vary on larger maps
+🤝 Contributing
+Contributions are welcome! Please follow these steps:
+
+Fork the repository
+Create a feature branch: git checkout -b feature/amazing-feature
+Commit your changes: git commit -m 'Add amazing feature'
+Push to the branch: git push origin feature/amazing-feature
+Open a Pull Request
+📝 License
+This project is provided as-is for educational purposes. Check LICENSE file for details.
+
+👨‍💻 Author
+Created by: Somaya Hassoune
+GitHub: @somaya-Hassoune
+
+⚡ Quick Start Example
+bash
+# Clone and build
+git clone https://github.com/somaya-Hassoune/Cub3D.git
+cd Cub3D
+make
+
+# Run with included map
+./cub3d maps/example.cub
+
+# Use arrow keys and WASD to explore
+# Press ESC to exit
