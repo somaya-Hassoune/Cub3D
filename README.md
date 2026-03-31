@@ -45,6 +45,7 @@ NO, SO, WE, EA: Texture file paths for each wall direction
 F: Floor RGB color (0-255 for each component)
 C: Ceiling RGB color
 Map grid: 1 = wall, 0 = walkable space, N/S/E/W = player start position + direction
+
 📁 Project Structure
 Code
 Cub3D/
@@ -60,6 +61,7 @@ Cub3D/
 ├── textures/              # Texture assets
 ├── Makefile               # Build configuration
 └── libmlx.a               # MLX42 graphics library (precompiled)
+
 🎨 Technical Implementation
 Raycasting Algorithm
 The engine uses DDA (Digital Differential Analyzer) raycasting:
@@ -129,11 +131,13 @@ Floor (Colored)
 Raycasting Tutorial: Permadi's Raycasting Tutorial
 Computer Graphics: Understanding 3D projections and perspective rendering
 Game Dev: Event-driven architecture and real-time rendering loops
+
 🐛 Known Limitations
 Orthogonal walls only (no diagonal surfaces)
 Flat terrain (no elevation changes)
 Fixed resolution based on screen size
 Performance may vary on larger maps
+
 🤝 Contributing
 Contributions are welcome! Please follow these steps:
 
@@ -142,18 +146,22 @@ Create a feature branch: git checkout -b feature/amazing-feature
 Commit your changes: git commit -m 'Add amazing feature'
 Push to the branch: git push origin feature/amazing-feature
 Open a Pull Request
+
 📝 License
 This project is provided as-is for educational purposes. Check LICENSE file for details.
 
 👨‍💻 Author
 Created by: Somaya Hassoune
+
 GitHub: @somaya-Hassoune
 
 ⚡ Quick Start Example
 bash
 # Clone and build
 git clone https://github.com/somaya-Hassoune/Cub3D.git
+
 cd Cub3D
+
 make
 
 # Run with included map
